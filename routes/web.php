@@ -22,7 +22,7 @@ Auth::routes();
  */
 
 Route::group([
-	'domain' 	=> 'live.dentech.dev',
+	'domain' 	=> 'live.'.env('APP_DOMAIN'),
 	'middleware'=> 'auth' // TODO: isStaff
 ], function () {
 
@@ -108,7 +108,7 @@ Route::group([
  */
 
 Route::group([
-	'domain' 	=> 'app.dentech.dev',
+	'domain' 	=> 'app.'.env('APP_DOMAIN'),
 	'middleware'	=> ['auth', 'isPatient'] // TODO: isPatient
 ], function () {
 

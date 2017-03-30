@@ -1,0 +1,22 @@
+[30-Mar-2017 09:25:51] PHP Warning:  Unexpected character in input:  '\' (ASCII=92) state=1 in /home6/dentechi/public_html/dentech/public/index.php on line 50
+[30-Mar-2017 09:25:51] PHP Parse error:  syntax error, unexpected T_STRING in /home6/dentechi/public_html/dentech/public/index.php on line 50
+[30-Mar-2017 09:25:52] PHP Warning:  Unexpected character in input:  '\' (ASCII=92) state=1 in /home6/dentechi/public_html/dentech/public/index.php on line 50
+[30-Mar-2017 09:25:52] PHP Parse error:  syntax error, unexpected T_STRING in /home6/dentechi/public_html/dentech/public/index.php on line 50
+[30-Mar-2017 09:28:28] PHP Warning:  Unexpected character in input:  '\' (ASCII=92) state=1 in /home6/dentechi/public_html/dentech/public/index.php on line 50
+[30-Mar-2017 09:28:28] PHP Parse error:  syntax error, unexpected T_STRING in /home6/dentechi/public_html/dentech/public/index.php on line 50
+[30-Mar-2017 09:28:28] PHP Warning:  Unexpected character in input:  '\' (ASCII=92) state=1 in /home6/dentechi/public_html/dentech/public/index.php on line 50
+[30-Mar-2017 09:28:28] PHP Parse error:  syntax error, unexpected T_STRING in /home6/dentechi/public_html/dentech/public/index.php on line 50
+[30-Mar-2017 09:29:12] PHP Warning:  Unexpected character in input:  '\' (ASCII=92) state=1 in /home6/dentechi/public_html/dentech/public/index.php on line 50
+[30-Mar-2017 09:29:12] PHP Parse error:  syntax error, unexpected T_STRING in /home6/dentechi/public_html/dentech/public/index.php on line 50
+[30-Mar-2017 09:29:14] PHP Warning:  Unexpected character in input:  '\' (ASCII=92) state=1 in /home6/dentechi/public_html/dentech/public/index.php on line 50
+[30-Mar-2017 09:29:14] PHP Parse error:  syntax error, unexpected T_STRING in /home6/dentechi/public_html/dentech/public/index.php on line 50
+[30-Mar-2017 09:29:17] PHP Warning:  Unexpected character in input:  '\' (ASCII=92) state=1 in /home6/dentechi/public_html/dentech/public/index.php on line 50
+[30-Mar-2017 09:29:17] PHP Parse error:  syntax error, unexpected T_STRING in /home6/dentechi/public_html/dentech/public/index.php on line 50
+[30-Mar-2017 09:29:17] PHP Warning:  Unexpected character in input:  '\' (ASCII=92) state=1 in /home6/dentechi/public_html/dentech/public/index.php on line 50
+[30-Mar-2017 09:29:17] PHP Parse error:  syntax error, unexpected T_STRING in /home6/dentechi/public_html/dentech/public/index.php on line 50
+[30-Mar-2017 09:29:19] PHP Warning:  Unexpected character in input:  '\' (ASCII=92) state=1 in /home6/dentechi/public_html/dentech/public/index.php on line 50
+[30-Mar-2017 09:29:19] PHP Parse error:  syntax error, unexpected T_STRING in /home6/dentechi/public_html/dentech/public/index.php on line 50
+[30-Mar-2017 09:30:01 America/Denver] PHP Fatal error:  require(): Failed opening required '/home6/dentechi/public_html/dentech/bootstrap/../vendor/autoload.php' (include_path='.:/usr/php/56/usr/lib64:/usr/php/56/usr/share/pear') in /home6/dentechi/public_html/dentech/bootstrap/autoload.php on line 17
+[30-Mar-2017 09:30:05 America/Denver] PHP Fatal error:  require(): Failed opening required '/home6/dentechi/public_html/dentech/bootstrap/../vendor/autoload.php' (include_path='.:/usr/php/56/usr/lib64:/usr/php/56/usr/share/pear') in /home6/dentechi/public_html/dentech/bootstrap/autoload.php on line 17
+[30-Mar-2017 09:30:10 America/Denver] PHP Fatal error:  require(): Failed opening required '/home6/dentechi/public_html/dentech/bootstrap/../vendor/autoload.php' (include_path='.:/usr/php/56/usr/lib64:/usr/php/56/usr/share/pear') in /home6/dentechi/public_html/dentech/bootstrap/autoload.php on line 17
+[30-Mar-2017 09:30:14 America/Denver] PHP Fatal error:  require(): Failed opening required '/home6/dentechi/public_html/dentech/bootstrap/../vendor/autoload.php' (include_path='.:/usr/php/56/usr/lib64:/usr/php/56/usr/share/pear') in /home6/dentechi/public_html/dentech/bootstrap/autoload.php on line 17
