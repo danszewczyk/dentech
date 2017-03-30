@@ -11,6 +11,10 @@
  with post form now...
 */
 
+Route::get('/', function() {
+	return "homepage";
+})
+
 
 Auth::routes();
 
