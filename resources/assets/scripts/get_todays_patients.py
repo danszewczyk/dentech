@@ -1,6 +1,5 @@
 import requests, json, sys
-
-
+from lxml import html
 import time
 import datetime
 
@@ -60,7 +59,7 @@ result = session_requests.get(
 appointment_data = json.loads(result.content)
 
 print len(appointment_data)
-print (appointment_data)
+print appointment_data
 
 todays_patients = set()
 todays_appointments = []
