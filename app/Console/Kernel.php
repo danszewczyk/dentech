@@ -24,8 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->exec('python public_html/dentech/resources/assets/scripts/get_todays_patients.py')->daily();
     }
 
     /**

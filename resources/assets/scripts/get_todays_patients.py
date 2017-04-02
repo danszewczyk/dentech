@@ -5,9 +5,14 @@ import datetime
 
 from operator import itemgetter
 
-patientId = sys.argv[1:]
-debug = sys.argv[2:]
 
+date = datetime.date.today().strftime('%m-%d-%Y')
+
+if len(sys.argv) > 1:
+	date = sys.argv[1:][0]
+
+
+print date
 
 
 session_requests = requests.session()
@@ -44,7 +49,7 @@ result = session_requests.get(url)
 tree = html.fromstring(result.text)
 authenticity_token = tree.xpath('//meta[@name="csrf-token"]/@content')[0]
 
-time_in_epoch = datetime.date.today().strftime('%s')
+time_in_epoch = datetime.datetime.strptime(date, '%m-%d-%Y').strftime('%s')
 															
 url = 'https://live.dentrixascend.com/appointmentREST/?date='+ time_in_epoch +'000&isWeekView=true'
 result = session_requests.get(
@@ -78,9 +83,10 @@ for appointment in appointment_data:
 
 	patient_data = json.loads(result.content)
 
+	
 
 	## add if the date is today
-	if time.strftime('%Y-%m-%d', time.localtime(appointment['startDateTime']/1000)) == time.strftime('%Y-%m-%d'):
+	if str(time.strftime('%Y-%m-%d', time.localtime(appointment['startDateTime']/1000))) == str(datetime.datetime.strptime(date, '%m-%d-%Y').date()):
 		todays_patients.add(patient_data['id'])
 
 		#pprint(appointment)

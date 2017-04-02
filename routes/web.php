@@ -15,6 +15,7 @@ Route::get('/', function() {
 	return "homepage!!";
 });
 
+Route::get('/testing', 'ImportController@todaysPatients');
 
 Auth::routes();
 

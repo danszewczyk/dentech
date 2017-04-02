@@ -139,13 +139,18 @@ class Person extends Model
     /* Email */
 
     public function getEmailAttribute($value) {
-        return decrypt($value);
+        if (!empty($value)) {
+            return decrypt($value);
+        }
+        
     }
 
     /* Date of Birth */
 
     public function getDateOfBirthAttribute($value) {
-        return decrypt($value);
+        if (!empty($value)) {
+            return decrypt($value);
+        }
     }
 
 
