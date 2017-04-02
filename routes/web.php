@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function() {
-	return "homepage!! hello";
+	return "homepage!! hello2";
 });
 
 Route::get('/testing', 'ImportController@todaysPatients');
