@@ -11,11 +11,6 @@
  with post form now...
 */
 
-Route::get('/', function() {
-	return "homepage!! hello2";
-});
-
-Route::get('/testing', 'ImportController@todaysPatients');
 
 Auth::routes();
 
@@ -33,6 +28,8 @@ Route::group([
 
 	Route::get('/', 'HomeController@staff')
 		->name('staff.home');
+
+	Route::get('/testing', 'ImportController@todaysPatients');
 
 
 	/*  --------------------------------------------------------------------
