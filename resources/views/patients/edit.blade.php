@@ -33,7 +33,8 @@
                     	<div class="col-xs-3">
 	                    	<div class="form-group label-floating @if ($errors->has('first_name')) has-error @elseif (old('first_name')) has-success @endif">
 	                    	    <label class="control-label" for="first_name">First Name</label>
-	                    	    <input type="text" class="form-control" name="first_name" value="{{ old('first_name', $patient->person->first_name) }}">
+	                    	    <input type="hidden" name="external_id" value="{{ $patient->external_id }}"
+                                <input type="text" class="form-control" name="first_name" value="{{ old('first_name', $patient->person->first_name) }}">
 	                    	    @if ($errors->has('first_name'))
                                 <p class="help-block">{{ $errors->first('first_name') }}</p>
                                 @endif
@@ -254,6 +255,7 @@
                                 <input type="phone" class="form-control" name="phones[{{ $loop->index }}][number]" value="{{ old('phones.'.$loop->index.'.number', $phone->number) }}">
                                 <input type="hidden" class="form-control" name="phones[{{ $loop->index }}][order]" value="{{ $loop->iteration }}">
                                 <input type="hidden" class="form-control" name="phones[{{ $loop->index }}][id]" value="{{ $phone->id }}">
+                               
                                 @if ($errors->has('phones.'.$loop->index.'.number'))
                                 <p class="help-block">{{ $errors->first('phones.'.$loop->index.'.number') }}</p>
                                 @endif
@@ -324,7 +326,7 @@
             <div class="panel-body">
                 
                 <!-- Row #1 -->
-                @foreach ($patient->person->emergency_contacts as $emergency_contact)
+                @foreach (range(0,2) as $x)
 
         
 

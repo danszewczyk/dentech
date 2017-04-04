@@ -119,6 +119,35 @@ class ImportController extends Controller
 
 
     			}
+
+
+    			// create the emergency contact
+
+    			$emergency_contact = new Person;
+    			$emergency_contact->first_name  =   '-';
+    			$emergency_contact->last_name   =   '-';
+    			$emergency_contact->gender      =   0;
+
+
+    			// create a phone number
+
+    			$phone = new Phone;
+    			$phone->number          =   '1';
+    			$phone->type_id         =   '1';
+    			$phone->order           =   '1'; 
+
+    			
+
+    			// save the new emergency contact
+
+    			$emergency_contact->save();
+    			$emergency_contact->phones()->save($phone);
+
+
+    			// attach it to the patient
+
+    			$patient->person->emergency_contacts()->attach($emergency_contact, ['is_emergency_contact' => 1, 'type_id' => 1]);
+
     			
 
 				

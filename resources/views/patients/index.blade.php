@@ -24,7 +24,7 @@
 	            <th>Patient</th>
 	            <th>Contact</th>
 	            <th>Date of Birth</th>
-	            <th>Updated at</th>
+	            <th>Dates</th>
 	            <th>Actions</th>
 	        </tr>
 	    </thead>
@@ -43,7 +43,11 @@
 					<p>Email: {{ $patient->person->email }}</p>
 	            </td>
 	            <td>{{ $patient->person->formated_date_of_birth }} ({{ $patient->person->age }} years old)</td>
-				<td>{{ $patient->updated_at }}</td>
+				<td>
+					<p>Updated at: {{ $patient->updated_at }}</p>
+					<p>Patient since: {{ $patient->first_visited_at }}</p>
+					<p>Created at: {{ $patient->created_at }}</p>
+				</td>
 
 	            <!-- we will also add show, edit, and delete buttons -->
 	            <td>
