@@ -126,7 +126,7 @@ class ImportController extends Controller
     			$emergency_contact = new Person;
     			$emergency_contact->first_name  =   '-';
     			$emergency_contact->last_name   =   '-';
-    			$emergency_contact->gender      =   0;
+    			$emergency_contact->gender      =   '0';
 
 
     			// create a phone number
