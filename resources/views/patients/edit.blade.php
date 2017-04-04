@@ -326,7 +326,7 @@
             <div class="panel-body">
                 
                 <!-- Row #1 -->
-                @foreach (range(0,2) as $x)
+                @foreach ($patient->person->emergency_contacts as $emergency_contact)
 
         
 
