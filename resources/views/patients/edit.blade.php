@@ -33,7 +33,7 @@
                     	<div class="col-xs-3">
 	                    	<div class="form-group label-floating @if ($errors->has('first_name')) has-error @elseif (old('first_name')) has-success @endif">
 	                    	    <label class="control-label" for="first_name">First Name</label>
-	                    	    <input type="hidden" name="external_id" value="{{ $patient->external_id }}"
+	                    	    <input type="hidden" name="external_id" value="{{ $patient->external_id }}" >
                                 <input type="text" class="form-control" name="first_name" value="{{ old('first_name', $patient->person->first_name) }}">
 	                    	    @if ($errors->has('first_name'))
                                 <p class="help-block">{{ $errors->first('first_name') }}</p>
