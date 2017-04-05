@@ -27,12 +27,14 @@ class ImportController extends Controller
 
     	foreach ($files as $file) {
 
-            print $file;
+            print $file; 
             print "<br/>";
 
     		$json = \File::get($file);
     		$data = json_decode($json);
     		
+            print $data;
+
     		$patient = Patient::where('external_id', $data->id)->first();
 
     		if (!$patient) {
@@ -80,7 +82,14 @@ class ImportController extends Controller
     			// Create an Address
 
     			$address = new Address;
-    			$address->line_1                    =   $data->patientAddress->address1;
+
+                if isset($data->patientAddress->address1) {
+                    $address->line_1                    =   $data->patientAddress->address1;
+                }else {
+                    $address->line_1                    =   "";
+                }
+
+    			
     			$address->line_2                    =   $data->patientAddress->address2;
     			$address->city                      =   $data->patientAddress->city;
     			$address->state_id                  =   $state_id;
