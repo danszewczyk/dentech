@@ -33,7 +33,7 @@ class ImportController extends Controller
     		$json = \File::get($file);
     		$data = json_decode($json);
     		
-            print $data;
+            print $json;
 
     		$patient = Patient::where('external_id', $data->id)->first();
 
