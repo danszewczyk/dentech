@@ -50,7 +50,7 @@ Route::group([
 
 
 		/*  ----------------------------------------------------------------
-		 *  Single Patient
+		 *  Single Patient ( patient/12 )
 		 *  ----------------------------------------------------------------
 		 */ 
 
@@ -78,7 +78,7 @@ Route::group([
 
 
 			/*  ----------------------------------------------------------------
-			 *  Attributes (single patient)
+			 *  Attributes (single patient) ( patient/12/attributes )
 			 *  ----------------------------------------------------------------
 			 */ 
 
@@ -100,7 +100,104 @@ Route::group([
 
 	}); // </patients>
 
-});
+
+
+	/*  --------------------------------------------------------------------
+	 *  Forms - /forms
+	 *  --------------------------------------------------------------------
+	 */ 
+
+	Route::group(array('prefix' => 'forms'), function() {
+
+		Route::get('/', 'FormController@index')
+			->name('staff.forms.index');
+
+		Route::get('/create', 'FormController@create')
+			->name('staff.forms.create');
+
+		Route::post('/', 'FormController@store')
+			->name('staff.forms.store');
+
+
+		/*  ----------------------------------------------------------------
+		 *  Single Form - /forms/2
+		 *  ----------------------------------------------------------------
+		 */ 
+
+		Route::group(array('prefix' => '{form}'), function() {
+
+
+			Route::get('/', 'FormController@show')
+				->name('staff.forms.show')
+				->where('id', '[0-9]+');
+
+			Route::get('/edit', 'FormController@edit')
+				->name('staff.forms.edit')
+				->where('id', '[0-9]+');
+
+			Route::put('/', 'FormController@update')
+				->name('staff.forms.update')
+				->where('id', '[0-9]+');
+
+			Route::delete('/', 'FormController@destroy')
+				->name('staff.forms.destroy')
+				->where('id', '[0-9]+');	
+
+
+			/*  ----------------------------------------------------------------
+			 *  Sections (single form) - /forms/2/sections
+			 *  ----------------------------------------------------------------
+			 */ 
+
+			Route::group(array('prefix' => 'sections'), function() {
+
+				Route::get('/', 'FormSectionController@index')
+					->name('staff.forms.sections.index');
+
+				Route::get('/create', 'FormSectionController@create')
+					->name('staff.forms.sections.create');
+
+				Route::post('/', 'FormSectionController@store')
+					->name('staff.forms.sections.store');
+
+
+				/*  ----------------------------------------------------------------
+				 *  Single Section - /forms/2/sections/2
+				 *  ----------------------------------------------------------------
+				 */
+
+				Route::group(array('prefix' => '{section}'), function() {
+
+
+					Route::get('/', 'FormSectionController@show')
+						->name('staff.forms.sections.show')
+						->where('id', '[0-9]+');
+
+					Route::get('/edit', 'FormSectionController@edit')
+						->name('staff.forms.sections.edit')
+						->where('id', '[0-9]+');
+
+					Route::put('/', 'FormSectionController@update')
+						->name('staff.forms.sections.update')
+						->where('id', '[0-9]+');
+
+					Route::delete('/', 'FormSectionController@destroy')
+						->name('staff.forms.sections.destroy')
+						->where('id', '[0-9]+');
+
+				});
+
+
+
+			});
+
+
+		}); // </single form>
+
+	}); // </forms>
+
+
+}); //live
 
 /*  
  *  ------------------------------------------------------------------------

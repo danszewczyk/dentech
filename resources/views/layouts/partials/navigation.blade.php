@@ -17,7 +17,7 @@
    		        <li class="active"><a href="{{ route('staff.home') }}">Home <span class="sr-only">(current)</span></a></li>  
 			@if (Auth::check())
    		        <li><a href="{{ route('patients.index') }}">Patients</a></li>
-   		        <li><a href="#">Attributes</a></li>
+   		        <li><a href="{{ route('staff.forms.index') }}">Forms</a></li>
    		    @endif
    		      </ul>
    		      

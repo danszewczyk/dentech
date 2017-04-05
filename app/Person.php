@@ -56,6 +56,13 @@ class Person extends Model
             ->withPivot('type_id');
     }
 
+    public function form_sections() {
+        return $this->belongsToMany('App\FormSection', 'person_form_section', 'person_id', 'form_section_id');
+    }
+
+    public function answers() {
+        return $this->hasMany('App\Answers');
+    }
 
 
 /*

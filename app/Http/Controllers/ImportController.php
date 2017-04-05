@@ -27,6 +27,8 @@ class ImportController extends Controller
 
     	foreach ($files as $file) {
 
+            print $file;
+
     		$json = \File::get($file);
     		$data = json_decode($json);
     		
@@ -70,7 +72,8 @@ class ImportController extends Controller
     			// Get IDS for state and country
 
     			$state_id = State::where('code', $data->patientAddress->state)->first()->id;
-    			$country_id = Country::where('code', 'US')->first()->id;
+    			
+                $country_id = Country::where('code', 'US')->first()->id;
 
  
     			// Create an Address
