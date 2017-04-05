@@ -27,7 +27,8 @@ class ImportController extends Controller
 
     	foreach ($files as $file) {
 
-            print $file;
+            print $file; p
+            rint "<br/>";
 
     		$json = \File::get($file);
     		$data = json_decode($json);
