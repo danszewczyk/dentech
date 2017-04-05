@@ -83,7 +83,7 @@ class ImportController extends Controller
 
     			$address = new Address;
 
-                if isset($data->patientAddress->address1) {
+                if (isset($data->patientAddress->address1)) {
                     $address->line_1                    =   $data->patientAddress->address1;
                 }else {
                     $address->line_1                    =   "";
