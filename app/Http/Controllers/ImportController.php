@@ -74,9 +74,21 @@ class ImportController extends Controller
 
     			// Get IDS for state and country
 
-    			$state_id = State::where('code', $data->patientAddress->state)->first()->id;
+                if ($data->patientAddress->state) {
+                    
+                    $state_id = State::where('code', $data->patientAddress->state)->first();
+
+                    if (!$state_id) {
+                        $add_state = new State;
+                        $add_state->code = $data->patientAddress->state;
+                        $add_state->name = $data->patientAddress->state;
+                        $add_state->save();
+                    }
+
+                }
     			
                 $country_id = Country::where('code', 'US')->first()->id;
+
 
  
     			// Create an Address
@@ -85,16 +97,21 @@ class ImportController extends Controller
 
                 if (isset($data->patientAddress->address1)) {
                     $address->line_1                    =   $data->patientAddress->address1;
+                    $address->line_2                    =   $data->patientAddress->address2;
+                    $address->city                      =   $data->patientAddress->city;
+                    $address->state_id                  =   $state_id->id;
+                    $address->zip_code                  =   substr($data->patientAddress->postalCode, 0, 4);
+                    $address->country_id                =   $country_id;
                 }else {
                     $address->line_1                    =   "";
+                    $address->city                      =   "";
+                    $address->state_id                  =   1;
+                    $address->zip_code                  =   00000;
+                    $address->country_id                =   $country_id;
                 }
 
     			
-    			$address->line_2                    =   $data->patientAddress->address2;
-    			$address->city                      =   $data->patientAddress->city;
-    			$address->state_id                  =   $state_id;
-    			$address->zip_code                  =   substr($data->patientAddress->postalCode, 0, 4);
-    			$address->country_id                =   $country_id;
+    			
 
 
 				$patient->save();
@@ -107,31 +124,53 @@ class ImportController extends Controller
 
 				$phones = $data->phones;
 
-    			foreach($phones as $new_phone) {
-    				print $new_phone->number;
- 					print $new_phone->type;
- 					print $new_phone->extension;
- 					print $new_phone->sequence;
-    				print "<br/>";
+                if (count($phones) > 0) {
 
-    				$phone_type = PhoneType::where('name', $new_phone->type)->first();
-    				
-    				$phone = new Phone;
+        			foreach($phones as $new_phone) {
+        				print $new_phone->number;
+     					print $new_phone->type;
+     					print $new_phone->extension;
+     					print $new_phone->sequence;
+        				print "<br/>";
 
-    				$phone->number          =   $new_phone->number;
-    				$phone->extension       =   $new_phone->extension;
-    				$phone->type_id         =   $phone_type->id;
-    				$phone->order           =   $new_phone->sequence; 
-    				
-    				if ($phone_type->name == "mobile") {
-    					$phone->sms_subscribed  =   1;
-    				}
-    				
+        				$phone_type = PhoneType::where('name', $new_phone->type)->first();
+        				
+        				$phone = new Phone;
 
-    				$patient->person->phones()->save($phone);
+        				$phone->number          =   $new_phone->number;
+        				$phone->extension       =   $new_phone->extension;
+        				$phone->type_id         =   $phone_type->id;
+        				$phone->order           =   $new_phone->sequence; 
+        				
+        				if ($phone_type->name == "mobile") {
+        					$phone->sms_subscribed  =   1;
+        				}
+        				
+
+        				$patient->person->phones()->save($phone);
 
 
-    			}
+        			}
+
+                } else { 
+
+                    $phone_type = PhoneType::where('name', 'mobile')->first();
+                    
+                    $phone = new Phone;
+
+                    $phone->number          =   "(000) 000-0000";
+                    $phone->extension       =   "";
+                    $phone->type_id         =   $phone_type->id;
+                    $phone->order           =   1; 
+                    
+                   
+                    $phone->sms_subscribed  =   1;
+                    
+                    
+
+                    $patient->person->phones()->save($phone);
+
+                }
 
 
     			// create the emergency contact
