@@ -15,7 +15,9 @@
 
 		<h4>Attributes</h4>
 		
-		{{ $patient->attritubes }}
+		@foreach ($patient->attributes as $attribute)
+		<li>{{ $attribute->name }}</li>
+		@endforeach
 
 		<h4>Emergency Contacts</h4>
 
