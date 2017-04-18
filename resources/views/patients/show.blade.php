@@ -13,9 +13,9 @@
 		<li>Occupation: {{ $patient->occupation }}</li>
 		<li>S.S.N: {{ $patient->social_security_number }}</li>
 
-		{{ $patient }}
-
-		{{ $patient->person->address }}
+		<h4>Attributes</h4>
+		
+		{{ $patient->attritubes }}
 
 		<h4>Emergency Contacts</h4>
 
