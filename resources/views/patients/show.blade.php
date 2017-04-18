@@ -16,7 +16,7 @@
 		<h4>Attributes</h4>
 		
 		@foreach ($patient->attributes as $attribute)
-		<li>{{ $attribute->name }}: {{ $attribute->value }}
+		<li>{{ $attribute->name }}: {{ $attribute->pivot->value }}
 		</li>
 		@endforeach
 
