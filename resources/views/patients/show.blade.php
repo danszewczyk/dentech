@@ -32,4 +32,9 @@
 
 		@endforeach
 	</ul>
+	
+	<h3>Address</h3>
+	{{ $patient->person->address->line_1 }} <br/>
+	{{ $patient->person->address->line_2 }} <br/>
+	{{ $patient->person->address->city }}, {{ $patient->person->address->state }} {{ $patient->person->address->zip_code }}
 @endsection
